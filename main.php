@@ -1,10 +1,13 @@
 <?php
+$input = $_GET['nama_file'];
 
-// require 'algoritma.php';
+set_time_limit(300);
+error_reporting(0);
 
-include('class.pdf2text.php');
+require 'class.pdf2text.php';
 $pdf2Text = new PDF2Text();
-$pdf2Text->setFilename('word.pdf');
+//$pdf2Text->setFilename('sample/word.pdf');
+$pdf2Text->setFilename('file/'.$input);
 $pdf2Text->decodePDF();
 
 $masukan = ($pdf2Text->output());
@@ -58,6 +61,6 @@ $balik = explode(" " , $kosong);
 return $balik;
 }
 
-
+//var_dump(convertarray($masukan));
 
 ?>
